@@ -1,0 +1,7 @@
+import { defineNuxtConfig } from 'nuxt'
+
+export default defineNuxtConfig({
+  build: {
+    transpile: ['sample-library']
+  }
+})
