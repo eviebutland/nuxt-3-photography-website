@@ -1,9 +1,19 @@
-<script setup>
-definePageMeta({
-  title: 'Jess Photography'
+<script>
+export default defineComponent({
+  data() {
+    return {
+      count: 1
+    }
+  },
+  mounted() {
+    this.count // type: number
+  }
 })
 </script>
 
 <template>
-  <h1>Evie here</h1>
+  <h1>
+    Evie here
+    {{ count }}
+  </h1>
 </template>
