@@ -1,14 +1,12 @@
 <script>
-export default defineComponent({
-  data() {
-    return {
-      show: false
-    }
-  },
-  mounted() {
-    this.show // type: Boolean
+export default {
+  name: 'ClientWedding',
+  setup() {
+    const show = ref(false)
+
+    return { show }
   }
-})
+}
 </script>
 
 <template>

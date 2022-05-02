@@ -1,19 +1,18 @@
 <script>
-export default defineComponent({
-  data() {
-    return {
-      count: 1
-    }
-  },
-  mounted() {
-    this.count // type: number
+export default {
+  setup() {
+    const counterRef = ref(0)
+    return { counterRef }
   }
-})
+}
 </script>
 
 <template>
-  <h1>
-    Evie here
-    {{ count }}
-  </h1>
+  <main>
+    <h1>
+      Evie here
+      {{ counterRef }}
+    </h1>
+    <NuxtLink to="/contact">Get in contact</NuxtLink>
+  </main>
 </template>

@@ -1,24 +1,20 @@
 <script>
-export default defineComponent({
-  // type inference enabled
-  props: {
-    name: String,
-    msg: { type: String, required: true }
+import ContactForm from '~~/components/form/ContactForm.vue'
+
+export default {
+  name: 'ContactPage',
+  setup() {
+    const show = ref(false)
+
+    return { show }
   },
-  data() {
-    return {
-      count: 1
-    }
-  },
-  mounted() {
-    this.name // type: string | undefined
-    this.msg // type: string
-    this.count // type: number
-  }
-})
+  components: { ContactForm }
+}
 </script>
 
 <template>
   <p>Contact form here</p>
   <NuxtLink to="/">Home page</NuxtLink>
+
+  <ContactForm />
 </template>
