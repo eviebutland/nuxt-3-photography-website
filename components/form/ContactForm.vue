@@ -1,9 +1,8 @@
 <template>
   <form>
-    <!-- <input type="text" name="name" v-model="name" />
-    <p v-if="nameError">{{ nameError }}</p> -->
     <InputField v-model="name" :error="nameError" name="name" />
-    Vslue: {{ name }}
+    <InputField v-model="email" :error="emailError" name="email" />
+
     <button type="submit" @click="onSubmit">Submit</button>
   </form>
 </template>
@@ -12,12 +11,17 @@
 import InputField from './InputField.vue'
 
 import { useField, useForm } from 'vee-validate'
+
 export default {
   name: 'ContactForm',
 
   setup() {
     const validations = {
-      name: inputValue => !!inputValue
+      name: inputValue => {
+        console.log(inputValue)
+        return !!inputValue ?? 'Please enter a name'
+      },
+      email: inputValue => !!inputValue
     }
 
     function onSubmit(e) {
@@ -31,8 +35,9 @@ export default {
 
     // Need to do this for each field in the form
     const { value: name, errorMessage: nameError } = useField('name')
+    const { value: email, errorMessage: emailError } = useField('email')
 
-    return { onSubmit, nameError, name }
+    return { onSubmit, nameError, name, email, emailError }
   },
   components: { InputField }
 }
